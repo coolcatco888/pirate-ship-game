@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateShipGame", "PirateShipGame\PirateShipGame\PirateShipGame.csproj", "{8C84C77E-F076-4684-AED1-E0306903CBB7}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PirateShipGameContent", "PirateShipGame\PirateShipGameContent\PirateShipGameContent.contentproj", "{FEB96D7F-AD02-480D-B301-44333EC75959}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C84C77E-F076-4684-AED1-E0306903CBB7}.Debug|x86.ActiveCfg = Debug|x86
+		{8C84C77E-F076-4684-AED1-E0306903CBB7}.Debug|x86.Build.0 = Debug|x86
+		{8C84C77E-F076-4684-AED1-E0306903CBB7}.Release|x86.ActiveCfg = Release|x86
+		{8C84C77E-F076-4684-AED1-E0306903CBB7}.Release|x86.Build.0 = Release|x86
+		{FEB96D7F-AD02-480D-B301-44333EC75959}.Debug|x86.ActiveCfg = Debug|x86
+		{FEB96D7F-AD02-480D-B301-44333EC75959}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
