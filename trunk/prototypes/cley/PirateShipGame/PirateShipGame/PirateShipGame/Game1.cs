@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using PirateShipGame.Camera;
+using PirateShipGame.Objects;
 
 namespace PirateShipGame
 {
@@ -20,10 +22,7 @@ namespace PirateShipGame
         GamePadState lastState = GamePad.GetState(PlayerIndex.One);
 
         //Camera/View information
-        Vector3 cameraPosition = new Vector3(0.0f, 0.0f, GameConstants.CameraHeight);
-        float aspectRatio;
-        Matrix projectionMatrix;
-        Matrix viewMatrix;
+        FollowCamera camera = new FollowCamera();
 
         //Audio components
         AudioEngine audioEngine;
@@ -50,8 +49,6 @@ namespace PirateShipGame
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
-            aspectRatio = (float)GraphicsDeviceManager.DefaultBackBufferWidth / GraphicsDeviceManager.DefaultBackBufferHeight;
         }
 
         protected override void Initialize()
@@ -60,12 +57,20 @@ namespace PirateShipGame
             waveBank = new WaveBank(audioEngine, "Content\\Audio\\Wave Bank.xwb");
             soundBank = new SoundBank(audioEngine, "Content\\Audio\\Sound Bank.xsb");
 
-            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(
-              MathHelper.ToRadians(45.0f), aspectRatio,
-              GameConstants.CameraHeight - 1000.0f,
-              GameConstants.CameraHeight + 1000.0f);
+            camera.Initialize();
 
-            viewMatrix = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
+
+            //TODO: Refactor Initialization
+            for (int i = 0; i < GameConstants.NumAsteroids; i++)
+            {
+                asteroidList[i] = new Asteroid();
+            }
+
+            for (int i = 0; i < GameConstants.NumBullets; i++)
+            {
+                bulletList[i] = new Bullet();
+            }
+
             ResetAsteroids();
 
             base.Initialize();
@@ -81,8 +86,8 @@ namespace PirateShipGame
                 foreach (BasicEffect effect in mesh.Effects)
                 {
                     effect.EnableDefaultLighting();
-                    effect.Projection = projectionMatrix;
-                    effect.View = viewMatrix;
+                    effect.Projection = camera.ProjectionMatrix;
+                    effect.View = camera.ViewMatrix;
                 }
             }
             return absoluteTransforms;

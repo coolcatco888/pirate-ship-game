@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace PirateShipGame
+namespace PirateShipGame.Objects
 {
-    struct Asteroid
+    class Asteroid : GameObject
     {
         public Vector3 position;
         public Vector3 direction;
