@@ -35,13 +35,13 @@ namespace PirateShipGame.Cameras
         {
             projectionMatrix = Matrix.CreatePerspectiveFieldOfView(
                   MathHelper.ToRadians(45.0f), aspectRatio,
-                  GameConstants.CameraHeight - 1000.0f,
+                  1.0f,//GameConstants.CameraHeight - 1000.0f,
                   GameConstants.CameraHeight + 1000.0f);
 
-            viewMatrix = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
+            viewMatrix = Matrix.CreateLookAt(cameraPosition, Vector3.Left, Vector3.Up);
         }
 
-        protected void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
         }
     }

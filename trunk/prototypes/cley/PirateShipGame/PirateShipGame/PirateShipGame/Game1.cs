@@ -58,7 +58,7 @@ namespace PirateShipGame
             soundBank = new SoundBank(audioEngine, "Content\\Audio\\Sound Bank.xsb");
 
             camera.Initialize();
-
+            camera.Target = ship;
 
             //TODO: Refactor Initialization
             for (int i = 0; i < GameConstants.NumAsteroids; i++)
@@ -225,7 +225,7 @@ namespace PirateShipGame
                 }
 
             }
-
+            camera.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -302,7 +302,6 @@ namespace PirateShipGame
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
-            //spriteBatch.Begin(SpriteBlendMode.None, SpriteSortMode.Immediate, SaveStateMode.None);
             spriteBatch.Draw(stars, new Rectangle(0, 0, 800, 600), Color.White);
             spriteBatch.End();
             Matrix shipTransformMatrix = ship.RotationMatrix
@@ -336,15 +335,18 @@ namespace PirateShipGame
             base.Draw(gameTime);
         }
 
-        public static void DrawModel(Model model, Matrix modelTransform, Matrix[] absoluteBoneTransforms)
+        public void DrawModel(Model model, Matrix modelTransform, Matrix[] absoluteBoneTransforms)
         {
+            model.CopyAbsoluteBoneTransformsTo(absoluteBoneTransforms);
             //Draw the model, a model can have multiple meshes, so loop
             foreach (ModelMesh mesh in model.Meshes)
             {
                 //This is where the mesh orientation is set
                 foreach (BasicEffect effect in mesh.Effects)
                 {
+                    effect.View = camera.ViewMatrix;
                     effect.World = absoluteBoneTransforms[mesh.ParentBone.Index] * modelTransform;
+                    effect.Projection = camera.ProjectionMatrix;
                 }
                 //Draw the mesh, will use the effects set above.
                 mesh.Draw();
