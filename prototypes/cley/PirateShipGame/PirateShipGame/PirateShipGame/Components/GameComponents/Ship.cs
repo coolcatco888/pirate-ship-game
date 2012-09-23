@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace PirateShipGame.Objects
+namespace PirateShipGame.Components.GameComponents
 {
     class Ship : GameObject
     {

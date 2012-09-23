@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateShipGame", "PirateShipGame\PirateShipGame\PirateShipGame.csproj", "{8C84C77E-F076-4684-AED1-E0306903CBB7}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PirateShipGameContent", "PirateShipGame\PirateShipGameContent\PirateShipGameContent.contentproj", "{FEB96D7F-AD02-480D-B301-44333EC75959}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateShipGameContent", "PirateShipGame\PirateShipGameContent\PirateShipGameContent.contentproj", "{FEB96D7F-AD02-480D-B301-44333EC75959}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3B054A3D-2C8C-49D9-AB86-DA370C19F352}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
