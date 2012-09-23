@@ -301,32 +301,14 @@ namespace PirateShipGame
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
-            spriteBatch.Draw(stars, new Rectangle(0, 0, 800, 600), Color.White);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque, SamplerState.AnisotropicClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise);
+            //spriteBatch.Draw(stars, new Rectangle(0, 0, 800, 600), Color.White);
             spriteBatch.End();
             Matrix shipTransformMatrix = ship.RotationMatrix
                     * Matrix.CreateTranslation(ship.Position);
             if (ship.isActive)
             {
                 DrawModel(ship.Model, shipTransformMatrix, ship.Transforms);
-            }
-            for (int i = 0; i < GameConstants.NumAsteroids; i++)
-            {
-                Matrix asteroidTransform =
-                    Matrix.CreateTranslation(asteroidList[i].Position);
-                if (asteroidList[i].isActive)
-                {
-                    DrawModel(asteroidModel, asteroidTransform, asteroidTransforms);
-                }
-            }
-            for (int i = 0; i < GameConstants.NumBullets; i++)
-            {
-                if (bulletList[i].isActive)
-                {
-                    Matrix bulletTransform =
-                      Matrix.CreateTranslation(bulletList[i].Position);
-                    DrawModel(bulletModel, bulletTransform, bulletTransforms);
-                }
             }
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
             spriteBatch.DrawString(lucidaConsole, "Score: " + score,
@@ -337,7 +319,6 @@ namespace PirateShipGame
 
         public void DrawModel(Model model, Matrix modelTransform, Matrix[] absoluteBoneTransforms)
         {
-            model.CopyAbsoluteBoneTransformsTo(absoluteBoneTransforms);
             //Draw the model, a model can have multiple meshes, so loop
             foreach (ModelMesh mesh in model.Meshes)
             {
@@ -346,7 +327,6 @@ namespace PirateShipGame
                 {
                     effect.View = camera.ViewMatrix;
                     effect.World = absoluteBoneTransforms[mesh.ParentBone.Index] * modelTransform;
-                    effect.Projection = camera.ProjectionMatrix;
                 }
                 //Draw the mesh, will use the effects set above.
                 mesh.Draw();
