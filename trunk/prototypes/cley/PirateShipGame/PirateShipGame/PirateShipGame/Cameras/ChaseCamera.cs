@@ -12,7 +12,9 @@ namespace PirateShipGame.Cameras
 
         public GameObject Target;
 
-        public float FollowDistance = 1000.0f;
+        public float FollowDistance = 5000.0f;
+
+        Vector3 velocity = Vector3.Zero;
 
         public ChaseCamera()
         {
@@ -21,12 +23,19 @@ namespace PirateShipGame.Cameras
 
         public override void Update(GameTime gameTime)
         {
-            /*Matrix rotationMatrix = Matrix.CreateRotationX(MathHelper.PiOver2) *
-                        Matrix.CreateRotationZ(Target.Rotation);
-
-            Vector3 direction = new Vector3(FollowDistance);
+            //Rotate with the target
+            Matrix rotationMatrix = Matrix.CreateRotationY(Target.Rotation);
+            Vector3 direction = new Vector3(0.0f, GameConstants.CameraHeight, FollowDistance);
             direction = Vector3.Transform(direction, rotationMatrix);
-            cameraPosition = cameraPosition + direction;*/
+
+            Vector3 newPosition = Target.Position + direction;
+
+            newPosition -= cameraPosition;
+            float length = newPosition.Length();
+            float velocity = length * 0.0085f;
+            newPosition.Normalize();
+            newPosition *= velocity * gameTime.ElapsedGameTime.Milliseconds;
+            cameraPosition += newPosition;
 
             viewMatrix = Matrix.CreateLookAt(cameraPosition, Target.Position, Vector3.Up);
         }
