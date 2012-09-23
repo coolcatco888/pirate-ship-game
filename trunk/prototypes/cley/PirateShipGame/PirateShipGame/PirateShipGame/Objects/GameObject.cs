@@ -36,8 +36,7 @@ namespace PirateShipGame.Objects
                 if (rotation != value)
                 {
                     rotation = value;
-                    RotationMatrix = Matrix.CreateRotationX(MathHelper.PiOver2) *
-                        Matrix.CreateRotationZ(rotation);
+                    RotationMatrix = Matrix.CreateRotationY(rotation);
                 }
             }
         }
