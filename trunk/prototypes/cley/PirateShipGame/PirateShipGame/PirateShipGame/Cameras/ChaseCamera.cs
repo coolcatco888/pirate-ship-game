@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PirateShipGame.Camera
+namespace PirateShipGame.Cameras
 {
-    class FollowCamera : Camera
+    class ChaseCamera : Camera
     {
     }
 }
