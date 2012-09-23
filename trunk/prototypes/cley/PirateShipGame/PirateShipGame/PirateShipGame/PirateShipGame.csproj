@@ -107,16 +107,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cameras\Camera.cs" />
-    <Compile Include="Cameras\ChaseCamera.cs" />
-    <Compile Include="Objects\Asteroid.cs" />
-    <Compile Include="Objects\Bullet.cs" />
+    <Compile Include="Components\BaseComponents\ComponentCollection.cs" />
+    <Compile Include="Components\Cameras\Camera.cs" />
+    <Compile Include="Components\Cameras\ChaseCamera.cs" />
+    <Compile Include="Components\GameComponents\Asteroid.cs" />
+    <Compile Include="Components\BaseComponents\CollidableComponent.cs" />
+    <Compile Include="Components\BaseComponents\Component.cs" />
+    <Compile Include="Components\BaseComponents\Component3D.cs" />
+    <Compile Include="Components\BaseComponents\ComponentInterfaces.cs" />
+    <Compile Include="Components\BaseComponents\DrawableComponent.cs" />
+    <Compile Include="Components\GameComponents\Bullet.cs" />
+    <Compile Include="Engine\Input\Direction.cs" />
+    <Compile Include="Engine\Audio\AudioManager.cs" />
+    <Compile Include="Engine\Audio\IAudioEmitter.cs" />
+    <Compile Include="Engine\GameEngine.cs" />
+    <Compile Include="Engine\Input\ControlHub.cs" />
+    <Compile Include="Engine\Input\InputDevice.cs" />
+    <Compile Include="Engine\Input\InputDeviceEventArgs.cs" />
+    <Compile Include="Engine\Input\InputManager.cs" />
+    <Compile Include="Engine\Input\KeyboardDevice.cs" />
+    <Compile Include="Engine\Screens\Screen.cs" />
+    <Compile Include="Engine\Screens\ScreenManager.cs" />
+    <Compile Include="Engine\Utility\Utility.cs" />
     <Compile Include="GameConstants.cs" />
-    <Compile Include="Objects\GameObject.cs" />
+    <Compile Include="Components\GameComponents\GameObject.cs" />
+    <Compile Include="Engine\Screens\ScreenCollection.cs" />
+    <Compile Include="Engine\Input\GamepadDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
-    <Compile Include="Objects\Ship.cs" />
+    <Compile Include="GameBase.cs" />
+    <Compile Include="Components\GameComponents\Ship.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

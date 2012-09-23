@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace PirateShipGame.Objects
+namespace PirateShipGame.Components.GameComponents
 {
     class GameObject
     {

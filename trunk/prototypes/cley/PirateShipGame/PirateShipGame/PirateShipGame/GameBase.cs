@@ -8,13 +8,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-using PirateShipGame.Cameras;
-using PirateShipGame.Objects;
+using PirateShipGame.Components.Cameras;
+using PirateShipGame.Components.GameComponents;
 
 namespace PirateShipGame
 {
 
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class GameBase : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -45,7 +45,7 @@ namespace PirateShipGame
         int score;
         Vector2 scorePosition = new Vector2(100, 50);
 
-        public Game1()
+        public GameBase()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";

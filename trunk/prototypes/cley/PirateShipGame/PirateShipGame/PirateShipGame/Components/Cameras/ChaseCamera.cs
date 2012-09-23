@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
-using PirateShipGame.Objects;
+using PirateShipGame.Components.GameComponents;
 
-namespace PirateShipGame.Cameras
+namespace PirateShipGame.Components.Cameras
 {
     class ChaseCamera : Camera
     {
