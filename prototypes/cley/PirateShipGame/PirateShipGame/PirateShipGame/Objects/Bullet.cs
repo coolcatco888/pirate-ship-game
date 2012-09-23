@@ -13,7 +13,6 @@ namespace PirateShipGame.Objects
 {
     class Bullet : GameObject
     {
-        public Vector3 position;
         public Vector3 direction;
         public float speed;
         public bool isActive;

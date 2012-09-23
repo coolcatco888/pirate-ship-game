@@ -108,7 +108,7 @@ namespace PirateShipGame
                     xStart = (float)GameConstants.PlayfieldSizeX;
                 }
                 yStart = (float)random.NextDouble() * GameConstants.PlayfieldSizeY;
-                asteroidList[i].position = new Vector3(xStart, yStart, 0.0f);
+                asteroidList[i].Position = new Vector3(xStart, yStart, 0.0f);
                 double angle = random.NextDouble() * 2 * Math.PI;
                 asteroidList[i].direction.X = -(float)Math.Sin(angle);
                 asteroidList[i].direction.Y = (float)Math.Cos(angle);
@@ -175,7 +175,7 @@ namespace PirateShipGame
                 if (asteroidList[i].isActive)
                 {
                     BoundingSphere asteroidSphere =
-                      new BoundingSphere(asteroidList[i].position,
+                      new BoundingSphere(asteroidList[i].Position,
                                asteroidModel.Meshes[0].BoundingSphere.Radius *
                                      GameConstants.AsteroidBoundingSphereScale);
                     for (int j = 0; j < bulletList.Length; j++)
@@ -183,7 +183,7 @@ namespace PirateShipGame
                         if (bulletList[j].isActive)
                         {
                             BoundingSphere bulletSphere = new BoundingSphere(
-                              bulletList[j].position,
+                              bulletList[j].Position,
                               bulletModel.Meshes[0].BoundingSphere.Radius);
                             if (asteroidSphere.Intersects(bulletSphere))
                             {
@@ -208,7 +208,7 @@ namespace PirateShipGame
                 {
                     if (asteroidList[i].isActive)
                     {
-                        BoundingSphere b = new BoundingSphere(asteroidList[i].position,
+                        BoundingSphere b = new BoundingSphere(asteroidList[i].Position,
                         asteroidModel.Meshes[0].BoundingSphere.Radius *
                         GameConstants.AsteroidBoundingSphereScale);
                         if (b.Intersects(shipSphere))
@@ -285,7 +285,7 @@ namespace PirateShipGame
                     {
                         bulletList[i].direction = ship.RotationMatrix.Forward;
                         bulletList[i].speed = GameConstants.BulletSpeedAdjustment;
-                        bulletList[i].position = ship.Position +
+                        bulletList[i].Position = ship.Position +
                   (200 * bulletList[i].direction);
                         bulletList[i].isActive = true;
                         score -= GameConstants.ShotPenalty;
@@ -314,7 +314,7 @@ namespace PirateShipGame
             for (int i = 0; i < GameConstants.NumAsteroids; i++)
             {
                 Matrix asteroidTransform =
-                    Matrix.CreateTranslation(asteroidList[i].position);
+                    Matrix.CreateTranslation(asteroidList[i].Position);
                 if (asteroidList[i].isActive)
                 {
                     DrawModel(asteroidModel, asteroidTransform, asteroidTransforms);
@@ -325,7 +325,7 @@ namespace PirateShipGame
                 if (bulletList[i].isActive)
                 {
                     Matrix bulletTransform =
-                      Matrix.CreateTranslation(bulletList[i].position);
+                      Matrix.CreateTranslation(bulletList[i].Position);
                     DrawModel(bulletModel, bulletTransform, bulletTransforms);
                 }
             }
