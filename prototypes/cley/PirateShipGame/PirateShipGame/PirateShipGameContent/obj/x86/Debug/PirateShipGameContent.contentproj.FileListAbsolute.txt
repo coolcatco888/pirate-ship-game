@@ -1,0 +1,2 @@
+C:\dev\pirate-ship-game\prototypes\cley\PirateShipGame\PirateShipGame\PirateShipGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\dev\pirate-ship-game\prototypes\cley\PirateShipGame\PirateShipGame\PirateShipGameContent\obj\x86\Debug\Audio\MyGameAudio.xml
