@@ -36,7 +36,7 @@ namespace PirateShipGame.Cameras
             projectionMatrix = Matrix.CreatePerspectiveFieldOfView(
                   MathHelper.ToRadians(45.0f), aspectRatio,
                   1.0f,//GameConstants.CameraHeight - 1000.0f,
-                  GameConstants.CameraHeight + 1000.0f);
+                  30000.0f);
 
             viewMatrix = Matrix.CreateLookAt(cameraPosition, Vector3.Left, Vector3.Up);
         }

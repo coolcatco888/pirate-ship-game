@@ -8,7 +8,7 @@ namespace PirateShipGame.Objects
 {
     class GameObject
     {
-        public Matrix RotationMatrix = Matrix.CreateRotationX(MathHelper.PiOver2);
+        public Matrix RotationMatrix = Matrix.CreateRotationX(0);
 
         protected Vector3 position;
 
