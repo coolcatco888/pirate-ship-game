@@ -28,8 +28,10 @@ namespace PirateShipGame.Cameras
             Vector3 direction = new Vector3(0.0f, GameConstants.CameraHeight, FollowDistance);
             direction = Vector3.Transform(direction, rotationMatrix);
 
+            //Compute where the camera should be
             Vector3 newPosition = Target.Position + direction;
 
+            //Add a velocity feel to the chase camera by slightly moving the camera towards its desired position
             newPosition -= cameraPosition;
             float length = newPosition.Length();
             float velocity = length * 0.0085f;
