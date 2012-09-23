@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-using PirateShipGame.Camera;
+using PirateShipGame.Cameras;
 using PirateShipGame.Objects;
 
 namespace PirateShipGame
@@ -22,7 +22,7 @@ namespace PirateShipGame
         GamePadState lastState = GamePad.GetState(PlayerIndex.One);
 
         //Camera/View information
-        FollowCamera camera = new FollowCamera();
+        ChaseCamera camera = new ChaseCamera();
 
         //Audio components
         AudioEngine audioEngine;

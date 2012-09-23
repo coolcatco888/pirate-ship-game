@@ -107,8 +107,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Camera\Camera.cs" />
-    <Compile Include="Camera\FollowCamera.cs" />
+    <Compile Include="Cameras\Camera.cs" />
+    <Compile Include="Cameras\ChaseCamera.cs" />
     <Compile Include="Objects\Asteroid.cs" />
     <Compile Include="Objects\Bullet.cs" />
     <Compile Include="GameConstants.cs" />
